@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: >-
+  politeness-py is a Python port of the R package "politeness".
+  If you use it, please cite the original paper below.
+title: "politeness-py: Python port of the R package politeness"
+version: 0.1.0
+license: MIT
+authors:
+  - name: oussama-sil
+references:
+  - type: software
+    title: "politeness: Detecting Politeness Features in Text (R package)"
+    authors:
+      - family-names: Yeomans
+        given-names: Mike
+      - family-names: Kantor
+        given-names: Alejandro
+      - family-names: Tingley
+        given-names: Dustin
+    url: "https://github.com/myeomans/politeness"
+    repository-code: "https://github.com/myeomans/politeness"
+preferred-citation:
+  type: article
+  title: "The politeness Package: Detecting Politeness in Natural Language"
+  authors:
+    - family-names: Yeomans
+      given-names: Mike
+    - family-names: Kantor
+      given-names: Alejandro
+    - family-names: Tingley
+      given-names: Dustin
+  journal: "The R Journal"
+  volume: 10
+  issue: 2
+  start: 489
+  end: 502
+  year: 2018
+  doi: "10.32614/RJ-2018-079"

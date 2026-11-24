@@ -1,0 +1,7 @@
+include LICENSE README.md HOW_IT_WORKS.md FEATURES.md CHANGELOG.md CITATION.cff
+recursive-include examples *.py *.md
+recursive-include tools *.py *.sh
+prune examples/output
+recursive-include tests *.py *.R *.json
+prune tests/fixtures/deep
+global-exclude __pycache__ *.py[cod]

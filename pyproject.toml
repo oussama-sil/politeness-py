@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "politeness-py"
+version = "0.1.0"
+description = "Detect politeness markers in text: a faithful Python port of the R package 'politeness' (Yeomans, Kantor & Tingley)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "oussama-sil" }]
+maintainers = [{ name = "oussama-sil" }]
+requires-python = ">=3.10"
+keywords = ["politeness", "nlp", "linguistics", "text analysis", "computational social science",
+            "receptiveness", "spacy"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+  "numpy>=1.22",
+  "pandas>=1.4",
+  "regex>=2022.1",
+  "PyICU>=2.8",          # ICU word-break rules (quanteda tokenizer) + Latin-ASCII
+]
+
+[project.optional-dependencies]
+spacy = ["spacy>=3.0,<4"]                  # parser="spacy"; then: python -m spacy download en_core_web_sm
+plots = ["matplotlib>=3.5", "scipy>=1.8"]  # featurePlot / modelPlot
+all = ["politeness-py[spacy,plots]"]
+test = ["politeness-py[all]", "pytest>=7"]
+
+[project.urls]
+"Original R package" = "https://CRAN.R-project.org/package=politeness"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+politeness_py = ["data/*.json", "data/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["deep: large R-parity corpora (fixtures generated locally, see tests/test_parity_deep.py)"]
+filterwarnings = ["ignore:Please install and initialize SpaCy:UserWarning"]
